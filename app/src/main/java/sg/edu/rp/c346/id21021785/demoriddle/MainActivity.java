@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvQ1;
     Button btnRevealQ1;
     Button btnRevealQ2;
+    int QNanswer;
+    String answer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
         btnRevealQ1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                QNanswer = 1;
                 Intent intent = new Intent(MainActivity.this, AnswerActivity1.class);
-                intent.putExtra("Question", "Q1");
+                intent.putExtra("Question", chooseAnswer(QNanswer));
                 startActivity(intent);
             }
         });
@@ -38,11 +41,28 @@ public class MainActivity extends AppCompatActivity {
         btnRevealQ2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AnswerActivity2.class);
-                intent.putExtra("Question", "Q2");
+                QNanswer = 2;
+                Intent intent = new Intent(MainActivity.this, AnswerActivity1.class);
+                intent.putExtra("Question", chooseAnswer(QNanswer));
                 startActivity(intent);
             }
         });
+
+    }
+
+    public String chooseAnswer(int QNanswer) {
+        switch (QNanswer) {
+            case 1:
+                answer = "Q1 answer is: Queue";
+                break;
+            case 2:
+                answer = "Q2 answer is: Gone";
+                break;
+            default:
+                answer = null;
+
+        }
+        return answer;
     }
 
     @Override

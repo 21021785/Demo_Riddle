@@ -24,7 +24,7 @@ public class AnswerActivity1 extends AppCompatActivity {
         //tvAnswer.setText("In Second Activity");
         Intent intentReceived = getIntent();
         String questionsSelected = intentReceived.getStringExtra("Question");
-        tvAnswer.setText(questionsSelected + " answer is: Queue");
+        tvAnswer.setText(questionsSelected);
     }
 
     @Override
